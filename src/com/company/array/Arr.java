@@ -17,9 +17,9 @@ public class Arr {
         System.out.println("Task #2 \nEnter int i:");
         int i = sc.nextInt();
         if (i < 0) {
-            System.out.println("i-2= " + (i - 2));
-        }
-        if (i > 0) {
+            System.out.println("i-2= " + (i - 2));}
+
+       else if (i > 0) {
             System.out.println("i+1= " + (i + 1));
         } else {
             System.out.println("i= " + (i + 10));
