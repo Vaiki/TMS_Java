@@ -72,8 +72,9 @@ public class Arr {
         int index=0;
         for (int y = 0; y < arrRand.length; y++) {
             arrRand[y] = (int) (Math.random() * 15);
-            if (arrRand[y]>max){max=arrRand[y];
-            index = y;
+            if (arrRand[y]>=max){
+                max=arrRand[y];
+                index = y;
             }
             System.out.print(arrRand[y] + " ");
         }
