@@ -50,7 +50,8 @@ public class Computer {
 
     public static void main(String[] args) {
         Computer com1 = new Computer("PentiumV", 550);
-        Computer com2 = new Computer("Pentium VII", 1200, "HyperX", 16, "Barracuda", 512, "External");
+        Computer com2 = new Computer("Pentium VII", 1200, "HyperX", 16,
+                "Barracuda", 512, "External");
         System.out.println(com1);
         System.out.println(com2);
 
