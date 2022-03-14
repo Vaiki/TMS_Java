@@ -1,8 +1,21 @@
 package com.company.animal;
 
 public abstract class Animal {
-    String food;
-    String location;
+    private final String food;
+    private final String location;
+
+    public Animal(String food, String location) {
+        this.food = food;
+        this.location = location;
+    }
+
+    public String getFood() {
+        return food;
+    }
+
+    public String getLocation() {
+        return location;
+    }
 
     abstract void makeNoise();
 
@@ -18,8 +31,7 @@ public abstract class Animal {
 class Cat extends Animal {
 
     public Cat(String food, String location) {
-        this.food = food;
-        this.location = location;
+        super(food, location);
     }
 
     public int getNumOfMiceCaught() {
@@ -40,7 +52,7 @@ class Cat extends Animal {
 
     @Override
     void eat() {
-        System.out.println("Cat eat " + food);
+        System.out.println("Cat eat " + getFood());
     }
 
 
@@ -49,11 +61,10 @@ class Cat extends Animal {
 class Dog extends Animal {
 
     public Dog(String food, String location) {
-        this.food = food;
-        this.location = location;
+        super(food, location);
     }
 
-    String[] favoriteCommand;
+    private String[] favoriteCommand;
 
     public String[] getFavoriteCommand() {
         return favoriteCommand;
@@ -71,7 +82,7 @@ class Dog extends Animal {
 
     @Override
     void eat() {
-        System.out.println("Dog eat " + food);
+        System.out.println("Dog eat " + getFood());
     }
 
 
@@ -81,11 +92,10 @@ class Horse extends Animal {
 
 
     public Horse(String food, String location) {
-        this.food = food;
-        this.location = location;
+        super(food, location);
     }
 
-    double jumpHeight;
+    private double jumpHeight;
 
     public double getJumpHeight() {
         return jumpHeight;
@@ -102,7 +112,7 @@ class Horse extends Animal {
 
     @Override
     void eat() {
-        System.out.println("Horse eat " + food);
+        System.out.println("Horse eat " + getFood());
     }
 
 
