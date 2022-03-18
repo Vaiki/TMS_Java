@@ -17,18 +17,18 @@ public abstract class Animal {
         return location;
     }
 
-    abstract void makeNoise();
-
-    abstract void eat();
-
-    void sleep() {
-        System.out.println("Sleeping");
-    }
-
-
 }
 
-class Cat extends Animal {
+interface Actions {
+
+    void makeNoise();
+
+    void eat();
+
+    void sleep();
+}
+
+class Cat extends Animal implements Actions {
 
     public Cat(String food, String location) {
         super(food, location);
@@ -46,19 +46,22 @@ class Cat extends Animal {
 
 
     @Override
-    void makeNoise() {
+    public void makeNoise() {
         System.out.println("Meow!");
     }
 
     @Override
-    void eat() {
+    public void eat() {
         System.out.println("Cat eat " + getFood());
     }
 
-
+    @Override
+    public void sleep() {
+        System.out.println("Sleeping");
+    }
 }
 
-class Dog extends Animal {
+class Dog extends Animal implements Actions {
 
     public Dog(String food, String location) {
         super(food, location);
@@ -76,19 +79,22 @@ class Dog extends Animal {
 
 
     @Override
-    void makeNoise() {
+    public void makeNoise() {
         System.out.println("Woof!");
     }
 
     @Override
-    void eat() {
+    public void eat() {
         System.out.println("Dog eat " + getFood());
     }
 
-
+    @Override
+    public void sleep() {
+        System.out.println("Sleeping");
+    }
 }
 
-class Horse extends Animal {
+class Horse extends Animal implements Actions {
 
 
     public Horse(String food, String location) {
@@ -106,14 +112,17 @@ class Horse extends Animal {
     }
 
     @Override
-    void makeNoise() {
+    public void makeNoise() {
         System.out.println("Neigh!");
     }
 
     @Override
-    void eat() {
+    public void eat() {
         System.out.println("Horse eat " + getFood());
     }
 
-
+    @Override
+    public void sleep() {
+        System.out.println("Sleeping");
+    }
 }
