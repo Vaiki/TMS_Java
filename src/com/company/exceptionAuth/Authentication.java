@@ -1,6 +1,6 @@
 package com.company.exceptionAuth;
 
-public class ExceptionPass {
+public class Authentication {
 
     public static void main(String[] args) {
         String login = "E_not17";
