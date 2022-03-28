@@ -6,10 +6,14 @@ import java.io.*;
 public class DocNum {
     public static void main(String[] args) {
 
+        BufferedReader reader = null;
+        BufferedWriter writerDoc = null;
+        BufferedWriter writerEx = null;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("Doc.txt"));
-            BufferedWriter writerDoc = new BufferedWriter(new FileWriter("LogDoc.txt"));
-            BufferedWriter writerEx = new BufferedWriter(new FileWriter("LogEx.txt"));
+
+            reader = new BufferedReader(new FileReader("Doc.txt"));
+            writerDoc = new BufferedWriter(new FileWriter("LogDoc.txt"));
+            writerEx = new BufferedWriter(new FileWriter("LogEx.txt"));
             String line = reader.readLine();
             while (line != null) {
                 if (isChecked(line)) {
@@ -17,16 +21,22 @@ public class DocNum {
                     writerDoc.flush();
 
                 } else {
-                    writerEx.write(line + " - " +reason(line)+ "\n");
+                    writerEx.write(line + " - " + reason(line) + "\n");
                     writerEx.flush();
                 }
                 line = reader.readLine();
             }
-            reader.close();
-            writerDoc.close();
-            writerEx.close();
+
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (reader != null) reader.close();
+                if (writerDoc != null) writerDoc.close();
+                if (writerEx != null) writerEx.close();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
         }
     }
 
@@ -39,7 +49,7 @@ public class DocNum {
         boolean is = true;
         String str = "";
         String regEx = "\\w+";
-                while (is) {
+        while (is) {
             if (!docNum.startsWith("docnum") && !docNum.startsWith("contract")) {
                 str = str.concat("номер документа не начинается с docnum или contract/ ");
             }
